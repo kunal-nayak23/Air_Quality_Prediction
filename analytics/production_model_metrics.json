@@ -1,0 +1,47 @@
+{
+  "issue": "2: prevent preprocessing and cross-source data leakage",
+  "source": "station_day.csv only (city aggregates excluded)",
+  "city_labelled_rows": 21304,
+  "station_labelled_rows": 77414,
+  "exact_cross_source_match_count": 9905,
+  "station_duplicate_rows_removed": 160,
+  "dataset_rows": 77254,
+  "train_rows": 61404,
+  "test_rows": 15850,
+  "train_unique_dates": 1541,
+  "test_unique_dates": 386,
+  "overlap_dates": 0,
+  "features": [
+    "PM2.5",
+    "PM10",
+    "NO",
+    "NO2",
+    "NOx",
+    "NH3",
+    "CO",
+    "SO2",
+    "O3",
+    "Benzene",
+    "Toluene"
+  ],
+  "preprocessing": "train-only median imputer inside each saved pipeline",
+  "split": "80/20 date-grouped random holdout, random_state=42",
+  "class_labels": [
+    "Good",
+    "Moderate",
+    "Poor",
+    "Satisfactory",
+    "Severe",
+    "Very Poor"
+  ],
+  "regression": {
+    "r2": 0.9157450768157371,
+    "mae": 22.005620373459738,
+    "rmse": 38.89098876375258
+  },
+  "classification": {
+    "accuracy": 0.794006309148265,
+    "macro_f1": 0.7798852212732856
+  },
+  "caveat": "Date-grouped random holdout; not future-period forecasting or independent external validation. AQI categories are AQI-derived labels, so classifier and regressor estimates may differ."
+}

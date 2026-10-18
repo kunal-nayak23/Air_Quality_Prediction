@@ -1,0 +1,52 @@
+{
+  "dataset": "station_day.csv (labeled, deduplicated)",
+  "split": "GroupShuffleSplit with Date groups; test_size=0.2; seed=42",
+  "train_rows": 61404,
+  "test_rows": 15850,
+  "features": [
+    "PM2.5",
+    "PM10",
+    "NO",
+    "NO2",
+    "NOx",
+    "NH3",
+    "CO",
+    "SO2",
+    "O3",
+    "Benzene",
+    "Toluene"
+  ],
+  "preprocessing": "train-only median imputation in Pipelines; KNN and RBF-SVR additionally StandardScaler trained on train split",
+  "results": [
+    {
+      "model": "Random Forest",
+      "mae": 22.0056,
+      "mse": 1512.509,
+      "rmse": 38.891,
+      "r2": 0.915745
+    },
+    {
+      "model": "XGBoost",
+      "mae": 22.4356,
+      "mse": 1542.38,
+      "rmse": 39.2731,
+      "r2": 0.914081
+    },
+    {
+      "model": "SVR (RBF)",
+      "mae": 24.3471,
+      "mse": 1781.0388,
+      "rmse": 42.2024,
+      "r2": 0.900787
+    },
+    {
+      "model": "KNN",
+      "mae": 24.6425,
+      "mse": 1775.416,
+      "rmse": 42.1357,
+      "r2": 0.9011
+    }
+  ],
+  "best_model_by_rmse": "Random Forest",
+  "caveat": "Date-grouped random holdout, NOT chronological future forecasting. All four models evaluated on identical held-out records. Hyperparameters not optimized on test set."
+}

@@ -1,0 +1,12 @@
+{
+  "purpose": "Integrity record proving the organized archive preserves the supplied production models byte-for-byte.",
+  "sha256": {
+    "best_model_reg.pkl": "4C8668098248A4261C4164BC4777C7147F587BBB3AFB73ABBC6183409CAD245F",
+    "best_model_clf.pkl": "F09CDD90DD07C035C049CCB876FB29FB26BA95E208CA6F5C76F6E616B5205936"
+  },
+  "deployment_roles": {
+    "best_model_reg.pkl": "Random Forest pipeline for numerical AQI regression",
+    "best_model_clf.pkl": "XGBoost pipeline for six-class AQI bucket classification"
+  },
+  "note": "The candidate-training script writes to artifacts/candidates and does not overwrite these files."
+}
